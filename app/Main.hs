@@ -1,7 +1,7 @@
 module Main where
 import qualified D1C1
 import qualified D1C2
---import qualified D2C1
+import qualified D2C1
 --import qualified D2C2
 --import qualified D3C1
 --import qualified D3C2
@@ -32,8 +32,8 @@ solutions = [
                         ,D1C2.solve
                 ]
                 ,[
-                --        D2C1.solve
-                  --      ,D2C2.solve
+                        D2C1.solve
+                        ,D2C1.solve
                 ]
         --,[
         --        D2C1.solve
@@ -84,7 +84,7 @@ solutions = [
 files :: [String]
 files = [
         "inputs/1.in"
-        ,"inputs/1.in"
+        ,"inputs/2.in"
         ]
 
 main :: IO ()
