@@ -5,20 +5,20 @@ switchchar 'R' = '0'
 switchchar 'L' = '-'
 switchchar c = c
 
-checktick :: Int -> Int -> Ordering -> Int
-checktick ac newac grad =
-    if newac == 0 || ac /= 0 && ac /= newac && (compare ac newac) == grad 
-      then 1
-      else 0
+ytick :: Bool -> Int
+ytick True = 1
+ytick False = 0
 
-spin :: Int -> Int -> [String] -> Int
-spin _ res [] = res
-spin ac res (s:r) =
-  spin newac newres r
+checktick :: Int -> Int -> Int
+checktick ac diff = ytick (y == 0 || x /= 0 && compare x y == grad)
   where
-    diff = read s
-    newac = (+) ac $ read s
-    newres = sum [res, abs diff `div` 100, checktick (mod ac 100) (mod newac 100) (compare diff 0)]
+    x = mod ac 100
+    y = mod (ac + diff) 100
+    grad = compare diff 0
+
+spin :: Int -> Int -> [Int] -> Int
+spin _ res [] = res
+spin ac res (n : r) = spin (ac + n) (sum [res, abs n `div` 100, checktick ac n]) r
 
 solve :: String -> String
-solve = show . spin 50 0 . words . map switchchar
+solve = show . spin 50 0 . map read . words . map switchchar

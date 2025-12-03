@@ -1,8 +1,8 @@
-module D2C1 where
+module D2C2 where
 
 match :: String -> Bool
-match str = take lim str == drop lim str
-  where lim = length str `div` 2
+match str = or [concat (replicate (lim `div` x) (take x str)) == str | x <- [1..lim], (lim `div` x) * x == lim, x /= lim]
+  where lim = length str
 
 squetch :: [Int] -> [[String]] -> [Int]
 squetch res [] = res

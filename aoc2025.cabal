@@ -13,7 +13,7 @@ common warnings
 executable aoc2025
     import:           warnings
     main-is:          Main.hs
-    other-modules:    D1C1 D1C2 D2C1
-    build-depends:    base ^>=4.18.2.1
+    other-modules:    D1C1 D1C2 D2C1 D2C2
+    build-depends:    base >=4.18.2.1
     hs-source-dirs:   app
     default-language: Haskell2010
