@@ -1,7 +1,7 @@
 module D2C2 where
 
 match :: String -> Bool
-match str = or [concat (replicate (lim `div` x) (take x str)) == str | x <- [1..lim], (lim `div` x) * x == lim, x /= lim]
+match str = or [concat (replicate (lim `div` x) (take x str)) == str | x <- [1..lim `div` 2], (lim `div` x) * x == lim]
   where lim = length str
 
 squetch :: [Int] -> [[String]] -> [Int]
