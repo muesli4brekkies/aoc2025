@@ -9,7 +9,7 @@ parseStr input = (mn, mx)
 countFresh :: ([String], [Int]) -> Int
 countFresh (ranges, nums) = length $ filter (\n -> any (fitsRange n) nRanges) nums
   where
-    fitsRange n (mn, mx) = n > pred mn && n < succ mx
+    fitsRange n (mn, mx) = n >= mn && n <= mx
     nRanges = map parseStr ranges :: [(Int, Int)]
 
 splitLn :: [String] -> ([String], [Int])
